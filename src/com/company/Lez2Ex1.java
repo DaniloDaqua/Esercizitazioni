@@ -28,7 +28,7 @@ public class Lez2Ex1 {
         for (int i = 0; i < ListSpAst.get(0).length(); i++) {
             for (int e = 0; e < ListSpAst.size(); e++) {
                 String parola = ListSpAst.get(e);
-                System.out.print(parola.charAt(e));
+                System.out.print(parola.charAt(i));
             }
             System.out.println();
         }
