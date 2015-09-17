@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by Danilo on 17/09/2015.
@@ -25,6 +26,8 @@ public class Lez2Ex1 {
     }
     public static ArrayList GestioneInput() {
     //gestiste lunghezza della sequenza e ne ritorna la sequenza
+        Scanner in = new Scanner(System.in);
+        int s = in.nextInt();
     }
     public static ArrayList GestioneSpazi() {
     //inserisce spazi e asterischi
