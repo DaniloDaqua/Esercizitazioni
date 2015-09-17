@@ -28,7 +28,17 @@ public class Lez2Ex1 {
     public static ArrayList GestioneInput() {
     //gestiste lunghezza della sequenza e ne ritorna la sequenza
         Scanner in = new Scanner(System.in);
-        int s = in.nextInt();
+        ArrayList<Integer> ListNumbers = new ArrayList<>();
+
+        System.out.println("Scriva un numero che indichi la lunghezza della squenza:");
+
+        int n = in.nextInt();
+
+        for (int i = 0; i < n; i++){
+            int input = in.nextInt();
+            ListNumbers.add(input);
+        }
+        return ListNumbers;
     }
     public static ArrayList<String> GestioneSpazi(ArrayList<Integer> lista) {
     //inserisce spazi e asterischi
