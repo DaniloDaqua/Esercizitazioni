@@ -40,5 +40,6 @@ public class Lez2Ex1 {
             listastring.add(spazi+aste);
         }
         return listastring;
+
     }
 }
