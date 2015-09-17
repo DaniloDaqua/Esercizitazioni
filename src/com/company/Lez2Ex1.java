@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -29,7 +30,15 @@ public class Lez2Ex1 {
         Scanner in = new Scanner(System.in);
         int s = in.nextInt();
     }
-    public static ArrayList GestioneSpazi() {
+    public static ArrayList<String> GestioneSpazi(ArrayList<Integer> lista) {
     //inserisce spazi e asterischi
+        int max = Collections.max(lista);
+        ArrayList<String> listastring = new ArrayList<String>();
+        for (Integer i : lista){
+            String aste = String.join("", Collections.nCopies(i, " "));
+            String spazi = String.join("", Collections.nCopies(max-i, " "));
+            listastring.add(spazi+aste);
+        }
+        return listastring;
     }
 }
