@@ -21,11 +21,19 @@ import java.util.Scanner;
  */
 public class Lez2Ex1 {
     public static void main(String[] args) {
-        GestioneInput();
+
+        ArrayList<String> ListSpAst = GestioneSpazi(GestioneInput());
 
         // stampiamo ->
+        for (int i = 0; i < ListSpAst.get(0).length(); i++) {
+            for (int e = 0; e < ListSpAst.size(); e++) {
+                String parola = ListSpAst.get(e);
+                System.out.print(parola.charAt(e));
+            }
+            System.out.println();
+        }
     }
-    public static ArrayList GestioneInput() {
+    public static ArrayList<Integer> GestioneInput() {
     //gestiste lunghezza della sequenza e ne ritorna la sequenza
         Scanner in = new Scanner(System.in);
         ArrayList<Integer> ListNumbers = new ArrayList<>();
@@ -33,7 +41,10 @@ public class Lez2Ex1 {
         System.out.println("Scriva un numero che indichi la lunghezza della squenza:");
 
         int n = in.nextInt();
-
+        if (n < 0){
+            return new ArrayList<Integer>();
+        }
+        System.out.println("Scrivi la squenza di numeri:");
         for (int i = 0; i < n; i++){
             int input = in.nextInt();
             ListNumbers.add(input);
@@ -43,12 +54,14 @@ public class Lez2Ex1 {
     public static ArrayList<String> GestioneSpazi(ArrayList<Integer> lista) {
     //inserisce spazi e asterischi
         int max = Collections.max(lista);
+        //System.out.println(max);
         ArrayList<String> listastring = new ArrayList<String>();
         for (Integer i : lista){
             String aste = String.join("", Collections.nCopies(i, "*"));
             String spazi = String.join("", Collections.nCopies(max-i, " "));
             listastring.add(spazi+aste);
         }
+        //System.out.println(listastring);
         return listastring;
     }
 }
