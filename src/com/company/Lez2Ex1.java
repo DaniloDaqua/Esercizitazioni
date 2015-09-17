@@ -45,7 +45,7 @@ public class Lez2Ex1 {
         int max = Collections.max(lista);
         ArrayList<String> listastring = new ArrayList<String>();
         for (Integer i : lista){
-            String aste = String.join("", Collections.nCopies(i, " "));
+            String aste = String.join("", Collections.nCopies(i, "*"));
             String spazi = String.join("", Collections.nCopies(max-i, " "));
             listastring.add(spazi+aste);
         }
