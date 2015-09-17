@@ -19,7 +19,9 @@ import java.util.ArrayList;
  */
 public class Lez2Ex1 {
     public static void main(String[] args) {
-    //stampa il tutto
+        GestioneInput();
+
+        // stampiamo ->
     }
     public static ArrayList GestioneInput() {
     //gestiste lunghezza della sequenza e ne ritorna la sequenza
