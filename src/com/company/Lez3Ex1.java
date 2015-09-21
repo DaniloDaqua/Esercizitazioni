@@ -11,7 +11,9 @@ public class Lez3Ex1 {
     public static void main(String[] args){
         Dipendente rossi = new Dipendente("Mario Rossi", 2000.0);
         rossi.setIndirizzo("Roma, via Rossini, 15");
-        rossi.setTelefono("06 8989898");
+        rossi.addTelefono("06 8989898");
+        rossi.addTelefono("06 5555555");
+        rossi.addTelefono("06 6666666");
         rossi.setEmail("cazzi@porno.com");
         Dipendente verdi = new Dipendente("Ugo Verdi", 1850.0);
         verdi.setIndirizzo("Roma, via G. Verdi, 30");
@@ -22,7 +24,7 @@ public class Lez3Ex1 {
             System.out.println("    stipendio:  " + d.getStipendio());
             Dipendente.Contatti con = d.getContatti();
             System.out.println("    Indirizzo: " + con.getIndirizzo());
-            System.out.println("    Telefono: " + con.getTelefono());
+            System.out.println("    Telefono: " + con.getListaContatti());
             System.out.println("    Email: " + con.getEmail());
         }
     }
@@ -151,6 +153,9 @@ class Dipendente {
                 return listaContatti.get(0);
             }
         }
+        public ArrayList<String> getListaContatti() {
+            return listaContatti;
+        }
         /*** @return l'indirizzo email del dipendente*/
         public String getEmail() {
             return email;
@@ -162,9 +167,7 @@ class Dipendente {
                 return listaContatti.get(0);
             }
         }
-        public String getListaContatti() {
-            return listaContatti.get(0);
-        }
+
 
         private String indirizzo;
         private String telefono;
