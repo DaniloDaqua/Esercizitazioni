@@ -41,7 +41,6 @@ class Dipendente {
         this(nomeCognome, 0);
     }
 
-
     // Aggiorna la generazione dei codici tenendo conto che il dato codice è in uso
     private static void codiceUsato(long codice) {
         ultimoCodice = Math.max(ultimoCodice, codice);
@@ -83,8 +82,19 @@ class Dipendente {
      * @param telefono  il nuovo numero di telefono */
     public void setTelefono(String telefono) { contatti.telefono = telefono; }
 
+    /** Imposta un nuovo stipendio per questo dipendente.
+     * @param nuovoStipendio  l'importo del nuovo stipendio */
+    public void setStipendio(double nuovoStipendio) {
+        stipendio = nuovoStipendio;
+    }
+
     /*** Mantiene i contatti di un dipendente come indirizzo, telefono, ecc.*/
     public static class Contatti {
+        private Contatti() {
+            indirizzo = "";
+            telefono = "";
+        }
+
         /**@return l'indirizzo del dipendente*/
         public String getIndirizzo() {
             return indirizzo;
@@ -96,12 +106,6 @@ class Dipendente {
         /*** @return il recapito telefonico del dipendente*/
         public String getTelefono() {
             return telefono;
-        }
-
-
-        private Contatti() {
-            indirizzo = "";
-            telefono = "";
         }
 
         private String indirizzo;
