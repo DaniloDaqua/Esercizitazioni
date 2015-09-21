@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -70,6 +71,7 @@ class Dipendente {
     private String nomeCognome;
     private double stipendio;
     private Contatti contatti;
+    private ArrayList<String>  listaContatti;
 
     /** @return i contatti di questo dipendente */
     public Contatti getContatti() { return contatti; }
@@ -83,7 +85,34 @@ class Dipendente {
 
     /** Imposta il recapito telefonico di questo dipendente.
      * @param telefono  il nuovo numero di telefono */
-    public void setTelefono(String telefono) { contatti.telefono = telefono; }
+    public void setTelefono(String telefono) {
+        if (contatti.listaContatti.size() == 0){
+            addTelefono(telefono);
+        } else {
+            setTelefono(telefono, 0);
+        }
+    }
+
+    /** Imposta il recapito telefonico di questo dipendente.
+     * @param telefono  il nuovo numero di telefono */
+    public void setTelefono(String telefono, int i) {
+        if (i>4) {
+            throw new IllegalArgumentException("I CONTATTI POSSO ESSERE MASSIMO 5 (0-4)");
+        } else if (i > contatti.listaContatti.size() - 1){
+            throw new IllegalArgumentException("NON ESISTE CONTATTO CON INDICE " + i);
+        } else {
+            contatti.listaContatti.set(i,telefono);
+        }
+    }
+
+    public void addTelefono(String telefono) {
+        if(contatti.listaContatti.size()<5) {
+            contatti.listaContatti.add(telefono);
+        } else {
+            throw new IllegalArgumentException("I CONTATTI POSSO ESSERE MASSIMO 5");
+        }
+    }
+
 
     /** Imposta un nuovo stipendio per questo dipendente.
      * @param nuovoStipendio  l'importo del nuovo stipendio */
@@ -103,6 +132,7 @@ class Dipendente {
             indirizzo = "";
             telefono = "";
             email = "";
+            listaContatti = new ArrayList<>();
         }
 
         /**@return l'indirizzo del dipendente*/
@@ -115,15 +145,30 @@ class Dipendente {
 
         /*** @return il recapito telefonico del dipendente*/
         public String getTelefono() {
-            return telefono;
+            if (listaContatti.size() == 0){
+                return "";
+            } else{
+                return listaContatti.get(0);
+            }
         }
         /*** @return l'indirizzo email del dipendente*/
         public String getEmail() {
             return email;
         }
+        public String getListaContatti(int i) {
+            if (i<5) {
+                return listaContatti.get(i);
+            } else {
+                return listaContatti.get(0);
+            }
+        }
+        public String getListaContatti() {
+            return listaContatti.get(0);
+        }
 
         private String indirizzo;
         private String telefono;
         private String email;
+        private ArrayList<String> listaContatti;
     }
 }
