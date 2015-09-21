@@ -66,7 +66,7 @@ class Dipendente {
 
     private String nomeCognome;
     private double stipendio;
-    private static Contatti contatti;
+    private Contatti contatti;
 
     /** @return i contatti di questo dipendente */
     public Contatti getContatti() { return contatti; }
