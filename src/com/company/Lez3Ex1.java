@@ -11,8 +11,10 @@ public class Lez3Ex1 {
         Dipendente rossi = new Dipendente("Mario Rossi", 2000.0);
         rossi.setIndirizzo("Roma, via Rossini, 15");
         rossi.setTelefono("06 8989898");
+        rossi.setEmail("cazzi@porno.com");
         Dipendente verdi = new Dipendente("Ugo Verdi", 1850.0);
         verdi.setIndirizzo("Roma, via G. Verdi, 30");
+        verdi.setEmail("doncarleone@gmail.ru");
         for (Dipendente d : new Dipendente[]{rossi, verdi}) {
             System.out.print("Dipendente: " + d.getNomeCognome());
             System.out.println("  codice: " + d.getCodice());
@@ -20,6 +22,7 @@ public class Lez3Ex1 {
             Dipendente.Contatti con = d.getContatti();
             System.out.println("    Indirizzo: " + con.getIndirizzo());
             System.out.println("    Telefono: " + con.getTelefono());
+            System.out.println("    Email: " + con.getEmail());
         }
     }
 
@@ -88,11 +91,18 @@ class Dipendente {
         stipendio = nuovoStipendio;
     }
 
+    /** Imposta un nuovo email per questo dipendente.
+     * @param nuovaEmail  l'importo del nuovo email */
+    public void setEmail(String nuovaEmail) {
+        contatti.email = nuovaEmail;
+    }
+
     /*** Mantiene i contatti di un dipendente come indirizzo, telefono, ecc.*/
     public static class Contatti {
         private Contatti() {
             indirizzo = "";
             telefono = "";
+            email = "";
         }
 
         /**@return l'indirizzo del dipendente*/
@@ -107,8 +117,13 @@ class Dipendente {
         public String getTelefono() {
             return telefono;
         }
+        /*** @return l'indirizzo email del dipendente*/
+        public String getEmail() {
+            return email;
+        }
 
         private String indirizzo;
         private String telefono;
+        private String email;
     }
 }
